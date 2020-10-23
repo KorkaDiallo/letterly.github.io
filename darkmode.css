@@ -1,0 +1,51 @@
+body{
+    background-color: #073642;
+}
+#header, #footer{
+    border: 2px solid #fdf6e3;
+}
+.choose{
+    color: #fdf6e3;
+}
+.script {
+    background: #002b36;
+}
+#footer p{
+    color: #fdf6e3;
+}
+.script h1, h2 {
+    color: #fdf6e3;
+}
+.title, .subtitle{
+    color: #fdf6e3;
+}
+#description{
+    color: #fdf6e3;
+}
+.level{
+    color: #fdf6e3;
+}
+.classification{
+    color: #fdf6e3;
+}
+.form, .sound{
+    color: #fdf6e3;
+}
+.transliteration{
+    color: #fdf6e3;
+}
+a{
+    color: #fdf6e3;
+}
+#input, #result{
+    background-color: #002b36;
+    color: #fdf6e3;
+    border: #fdf6e3 0.2vw solid;
+}
+button{
+    border: #fdf6e3 0.2vw solid;
+    color: #fdf6e3;
+}
+#specialLetters button{
+    color: #002b36;
+}

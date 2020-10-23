@@ -1,0 +1,51 @@
+body{
+    background-color: #eee8d5;
+}
+#header, #footer{
+    border: 2px solid #002b36;
+}
+.choose{
+    color: #002b36;
+}
+#footer p{
+    color: #002b36;
+}
+.script {
+    background: #fdf6e3;
+}
+.script h1, h2 {
+    color: #002b36;
+}
+.title, .subtitle{
+    color: #002b36;
+}
+#description{
+    color: #002b36;
+}
+.level{
+    color: #002b36;
+}
+.classification{
+    color: #002b36;
+}
+.form, .sound{
+    color: #002b36;
+}
+.transliteration{
+    color: #002b36;
+}
+a{
+    color: #002b36;
+}
+#input, #result{
+    background-color: #fdf6e3;
+    color: #002b36;
+    border: #002b36 0.2vw solid;
+}
+button{
+    border: #002b36 0.2vw solid;
+    color: #002b36;
+}
+#specialLetters button{
+    color: #fdf6e3;
+}
