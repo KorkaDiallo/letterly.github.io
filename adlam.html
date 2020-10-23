@@ -1,0 +1,123 @@
+<html>
+    <head>
+        <style>
+            h1,h2{
+                text-align: center;
+            }
+            textarea{
+                margin-left: 10%;
+                margin-right: 10%;
+                width: 29%;
+                font-size: 24px;
+                height: 200px;
+                resize: none;
+            }
+            *{
+                font-family: 'Verdana';
+            }
+        </style>
+        <script>
+            document.addEventListener('DOMContentLoaded', function(){ 
+                var typingTimer
+                var doneTypingInterval = 1000
+                var $adlam = document.getElementById("adlam")
+                var $latin = document.getElementById("latin")
+                $adlam.addEventListener('keyup', adlamFunction)
+                $latin.addEventListener('keyup', latinFunction)
+                function adlamFunction () {
+                    adlam = $adlam.value
+                    adlam = adlam.replace(/𞥞/g, "!")
+                    adlam = adlam.replace(/𞥟/g, "?")
+
+                    for(e of Object.keys(adlamKey)){
+                        var myRegExp = new RegExp(e, 'g')
+                        adlam = adlam.replace(myRegExp, adlamKey[e])
+                    }
+                    $latin.value = adlam
+                }
+
+                function latinFunction () {
+                    latinText = $latin.value
+                    latinText = latinText.replace(/\!/g, "𞥞")
+                    latinText = latinText.replace(/\?/g, "𞥟")
+                    for(e of Object.keys(latinKey)){
+                        var myRegExp = new RegExp(e, 'g')
+                        latinText = latinText.replace(myRegExp, latinKey[e])
+                    }
+                    $adlam.value = latinText
+                }
+
+                adlamKey = {
+                    "،": ",",
+                    " 𞤲'": " n",
+                    "𞥀": "gb",
+                    "𞥂": "kp",
+                    "𞥃": "sh",
+                    "𞤲𞥆": "nn",
+                    "𞤥𞥆": "mm",
+                    "𞤳𞥆": "kk",
+                    "𞤨𞥆": "pp",
+                    "𞤼𞥆": "tt",
+                    "𞤫𞥅": "ee",
+                    "𞤭𞥅": "ii",
+                    "𞤵𞥅": "uu",
+                    "𞤢𞥄": "aa",
+                    "𞤮𞥅": "oo",
+                    "𞤢": "a",
+                    "𞤣": "d",
+                    "𞤤": "l",
+                    "𞤥": "m",
+                    "𞤦": "b",
+                    "𞥁": "z",
+                    "𞤧": "s",
+                    "𞤨": "p",
+                    "𞤩": "ɓ",
+                    "𞤪": "r",
+                    "𞤫": "e",
+                    "𞤬": "f",
+                    "𞤭": "i",
+                    "𞤮": "o",
+                    "𞤯": "ɗ",
+                    "𞤰": "ƴ",
+                    "𞤱": "w",
+                    "𞤲": "n",
+                    "𞤳": "k",
+                    "𞤴": "y",
+                    "𞤵": "u",
+                    "𞤶": "j",
+                    "𞤷": "c",
+                    "𞤸": "h",
+                    "𞤹": "ɠ",
+                    "𞤺": "g", 
+                    "𞤻": "ñ",
+                    "𞤼": "t", 
+                    "𞤽": "ŋ",
+                    "𞥐": "0",
+                    "𞥑": "1",
+                    "𞥒": "2",
+                    "𞥓": "3",
+                    "𞥔": "4",
+                    "𞥕": "5",
+                    "𞥖": "6",
+                    "𞥗": "7",
+                    "𞥘": "8",
+                    "𞥙": "9",
+                    "𞤾": "v",
+                    "𞤿": "x",
+                }
+                for(n of Object.keys(adlamKey)){
+                    if(n.toUpperCase() != n){
+                        adlamKey[n.toUpperCase()] = adlamKey[n].toUpperCase()
+                    }
+                }
+                const reverse = object => JSON.parse(`{${Object.entries(object).map(x => `"${x[1]}": "${x[0]}"`).join(",")}}`);
+                latinKey = reverse(adlamKey)
+            }, false);
+        </script>
+    </head>
+    <body>
+        <h1>Adlam Transliterator</h1>
+        <textarea id="adlam" placeholder="enter Fulfulde Adlam text"></textarea>
+        <textarea  direction="rtl" id="latin" placeholder="or enter Fulfulde in Latin letters here"></textarea>
+    </body>
+</html>

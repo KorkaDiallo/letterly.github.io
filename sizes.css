@@ -1,0 +1,148 @@
+@media(min-width: 800px){ /* BIG */
+    .frame{
+        margin: 2%;
+    }
+    .script h1{
+        font-size: 4vw;
+    }
+    .script h2{
+        font-size: 3vw;
+    }
+    .script{
+        height: 30vw;
+        width: 50%;
+        float: left;
+    }
+    .title{
+        font-size: 6vw !important;
+    }
+    .subtitle{
+        font-size: 3vw;
+    }
+    .level{
+        width: 15vw;
+        height: 15vw;
+        font-size: 4vw;
+        margin: 0.8vw;
+    }
+    #input, #result, #enter{
+        border-radius: 4px;
+        width: 80%;
+        height: auto;
+        font-size: 4vw;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-bottom: 1vw;
+        margin-top: 1vw;
+    }
+    #theLetter{
+        font-size: 10vw;
+        margin-top: 1vw;
+        margin-bottom: 1vw;
+    }
+    .transliteration{
+        font-size: 5vw;
+    }
+    #footer{
+        float: left;
+        width: calc(100% - 4%)
+    }
+    .word{
+        font-size: 5vw;
+    }
+}
+@media(max-width: 800px){ /* SMALL */
+    .frame{
+        margin: 2%;
+    }
+    #footer p{
+        font-size: 3vw;
+    }
+    .script {
+        min-height: 40vw;
+    }
+    .script h1{
+        font-size: 8vw;
+    }
+    .script h2{
+        font-size: 4vw;
+    }
+    .level{
+        width: 20vw;
+        height: 20vw;
+        font-size: 6vw;
+        margin: 1vw;
+    }
+    #input, #result, #enter{
+        border-radius: 4px;
+        width: 80%;
+        height: auto;
+        font-size: 4vw;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-bottom: 10vw;
+        margin-top: 10vw;
+    }
+    #theLetter{
+        font-size: 15vw;
+        margin-top: 1vw;
+        margin-bottom: 1vw;
+    }
+    .transliteration{
+        font-size: 6vw;
+        margin-top: 1vw;
+        margin-bottom: 1vw;
+    }
+    .word{
+        font-size: 7vw;
+    }
+}
+.title{
+    font-size: 8vw;
+}
+.subtitle{
+    font-size: 4vw;
+}
+#description{
+    margin: 2vw;
+    font-size: 2vw;
+}
+#lesson{
+    min-height: 80vh !important;
+}
+.classification{
+    font-size: 4vw;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.form, .sound{
+    font-size: 4vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+}
+.transliteration{
+    font-size: 6vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+}
+.listen{
+    font-size: 4vw;
+    padding-bottom: 2vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+}
+.tf{
+    margin-top: 10vw;
+    margin-bottom: 10vw;
+    margin-left: 15vw;
+    margin-right: 15vw;
+    width: 15vw;
+    border-radius: 4px;
+    font-size: 4vw;
+}
+#specialLetters{
+    margin-left: 10vw;
+}
+#specialLetters button{
+    font-size: 3vw;
+}
