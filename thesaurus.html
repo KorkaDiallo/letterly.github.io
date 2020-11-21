@@ -6129,7 +6129,7 @@ function wordsearch(word){
     wordname = {}
     for(var x = 0; x < newlist.length; x++){
         if(newlist[x][1].includes(word)){
-            u = newlist[x][1]
+            u = [].concat(newlist[x][1])
             u.splice(newlist[x][1].indexOf(word), 1)
             wordname[newlist[x][0]] = u;
         }
