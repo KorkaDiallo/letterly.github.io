@@ -800,7 +800,7 @@ function verbcheck(){
     }
 }
 function mktranslate(){
-    eninput = document.getElementById("eninput").value;
+    eninput = document.getElementById("eninput").value.trim();
     eninput = eninput.toLowerCase()
         .replace(/'m/g, " am")
         .replace(/'re/g, " are")
@@ -821,7 +821,7 @@ function mktranslate(){
     }
 }
 function entranslate(){
-    mkinput = document.getElementById("mkinput").value;
+    mkinput = document.getElementById("mkinput").value.trim();
     mkinput = mkinput.toLowerCase().replace(/\./g, "")
     answer = lesson[levelNumber][levelPart].mk
     if(typeof answer == "object") answer = answer.map(p => p.toLowerCase())
