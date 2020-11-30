@@ -159,7 +159,7 @@ h1{
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
         <script>
             //data.js
-            lesson = {
+lesson = {
     "1.1": [
         {
             type: "vocabulary",
@@ -228,13 +228,12 @@ h1{
         {
             type: "vocabulary",
             vocab: {
-                "on": "he",
-                "ona": "she",
-                "ono": "it",
-                "mi": "we",
-                "vi": "you (plural)",
-                "oni": "they (male)",
-                "one": "they (mixed/female)",
+                "toj": "he",
+                "taa": "she",
+                "toa": "it",
+                "nie": "we",
+                "vie": "you (plural)",
+                "tie": "they",
             },
         },
         {
@@ -249,24 +248,24 @@ h1{
         },
         {
             type: "mktranslate",
-            mk: "Ona e",
+            mk: "Taa e",
             en: "She is",
         },
         {
             type: "entranslate",
             en: "We are in Macedonia",
-            mk: "Ni sme vo Makedonija",
+            mk: "Nie sme vo Makedonija",
         },
         {
             type: "mktranslate",
             en: "They are from Greece",
-            mk: "One se od Grcija",
+            mk: "Tie se od Grcija",
         },
         {
             type: "choice",
             lang: "mk",
             word: "Vi",
-            choices: ["We", "They (female)", "You (plural)"],
+            choices: ["We", "They", "You (plural)"],
             answer: "You (plural)",
         },
         {
@@ -292,7 +291,7 @@ h1{
         },
         {
             type: "entranslate",
-            mk: "On ne e vo Albanija",
+            mk: "Toj ne e vo Albanija",
             en: "He is not in Albania",
         },
     ],
@@ -315,21 +314,21 @@ h1{
         },
         {
             type: "mktranslate",
-            mk: "Ona ne zboruva angliski",
+            mk: "Toa ne zboruva angliski",
             en: "She does not speak English",
         },
         {
             type: "entranslate",
-            mk: "Vo Tetovo mi zboruvame albanski i makedonski",
+            mk: "Vo Tetovo nie zboruvame albanski i makedonski",
             en: "In Tetovo we speak Albanian and Macedonian",
         },
         {
             type: "grammar",
-            grammar: "In Macedonian, you can sometimes drop the subject before a verb, because the suffix of the verb implies the subject. For example, we always know that the verb ^sme^ is referring to the subject ^mi^.",
+            grammar: "In Macedonian, you can sometimes drop the subject before a verb, because the suffix of the verb implies the subject. For example, we always know that the verb ^sme^ is referring to the subject ^nie^.",
         },
         {
             type: "mktranslate",
-            mk: "Oni se od Grcija no ne zboruvaat grchki",
+            mk: "Tie se od Grcija no ne zboruvaat grchki",
             en: ["They are from Greece but they do not speak Greek", "They are from Greece but do not speak Greek"],
         },
         {
@@ -357,7 +356,7 @@ h1{
         },
         {
             type: "entranslate",
-            mk: "On uchi francuski vo Kanada",
+            mk: "Toj uchi francuski vo Kanada",
             en: "He studies French in Canada",
         },
         {
@@ -561,13 +560,12 @@ english = {
 macedonian = {
     "jas": "prnm",
     "ti": "prnm",
-    "on": "prnm",
-    "ona": "prnm",
-    "ono": "prnm",
-    "mi": "prnm",
-    "vi": "prnm",
-    "oni": "prnm",
-    "one": "prnm",
+    "toj": "prnm",
+    "toa": "prnm",
+    "taa": "prnm",
+    "nie": "prnm",
+    "vie": "prnm",
+    "tie": "prnm",
     "sum": "verb",
     "si": "verb",
     "e": "verb",
@@ -728,7 +726,7 @@ function showDiv(id){
         case "showverb":
             document.getElementById("showverbword").textContent = script == "cyrillic" ? cyrillic(lesson[levelNumber][levelPart].verb) : lesson[levelNumber][levelPart].verb
             document.getElementById("showverbdef").textContent = `${lesson[levelNumber][levelPart].def}`
-            prnms = ["Jas", "Ti", "On/Ona/Ono", "Mi", "Vi", "Oni/One"]
+            prnms = ["Jas", "Ti", "Toj/Taa/Toa", "Nie", "Vie", "Tie"]
             verblist = ""
             for(var t = 0; t < prnms.length; t++){
                 verblist += `<h1><span class="mkprnm">${script == "cyrillic" ? cyrillic(prnms[t]) : prnms[t]}</span> <span class="mkverb">${script == "cyrillic" ? cyrillic(lesson[levelNumber][levelPart].conjugation[t]) : lesson[levelNumber][levelPart].conjugation[t]}</span></h1>`
