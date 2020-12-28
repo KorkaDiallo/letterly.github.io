@@ -1,0 +1,178 @@
+<html>
+    <head>
+        <title>Mandombe Calculator</title>
+        <style>
+            svg{
+                width: 70px;
+                float: left;
+                height: 50px;
+            }
+            #keys svg{
+                background-color: red;
+            }
+            #keys div{
+                background-color: green;
+                border-radius: 5px;
+                margin: 5px;
+                height: 60px;
+                width: 100px;
+                float: left;
+                font-size: 40px;
+            }
+            #input{
+                float: left;
+                border: 3px #222222 solid;
+                height: 140px;
+                width: 90%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="calc">
+            <div id="keys">
+                <div id="0" onclick="zero()"></div>
+                <div id="1" onclick="one()"></div>
+                <div id="2" onclick="two()"></div>
+                <div id="3" onclick="three()"></div>
+                <div id="4" onclick="four()"></div>
+                <div id="5" onclick="five()"></div>
+                <div id="6" onclick="six()"></div>
+                <div id="7" onclick="seven()"></div>
+                <div id="8" onclick="eight()"></div>
+                <div id="9" onclick="nine()"></div>
+                <div id="del" onclick="del()">DEL</div>
+                <div id="+" onclick="plus()">+</div>
+                <div id="-" onclick="minus()">-</div>
+                <div id="x" onclick="times()">x</div>
+                <div id="/" onclick="divided()">/</div>
+                <div id="." onclick="dot()">.</div>
+                <div id="=" onclick="equals()">=</div>
+            </div>
+            <div id="input">
+            </div>
+        </div>
+        <script>
+            num = [
+                `<path xmlns="http://www.w3.org/2000/svg" d="M 21.415698,64.25 42.668626,0.5 49.5,0.5 56.331374,0.5 77.584302,64.25 98.83723,128 49.5,128 0.16276986,128 21.415698,64.25 z m 57.604269,49 C 79.030949,112.8375 72.400303,92.865122 64.2852,68.866938 L 49.530465,25.233876 34.769302,68.866938 C 26.650662,92.865122 20.006307,112.8375 20.004069,113.25 20.001869,113.6625 33.275,114 49.5,114 c 16.225,0 29.508985,-0.3375 29.519967,-0.75 z" id="path2987" style="fill:#000000"/>`,
+                `<path xmlns="http://www.w3.org/2000/svg" d="M 57,71 57,14 28.5,14 0,14 0,7 0,0 35.5,0 71,0 l 0,64 0,64 -7,0 -7,0 0,-57 z" id="path2987" style="fill:#000000"/>`,
+                `<path xmlns="http://www.w3.org/2000/svg" d="M 57,71 57,14 28.5,14 0,14 0,7 0,0 l 64,0 64,0 0,64 0,64 -7,0 -7,0 0,-57 0,-57 -21.5,0 -21.5,0 0,57 0,57 -7,0 -7,0 0,-57 z" id="path2987" style="fill:#000000"/>`,
+                `<path xmlns="http://www.w3.org/2000/svg" d="M 57,71 57,14 28.5,14 0,14 0,7 0,0 35.5,0 71,0 l 0,28.5 0,28.5 28.5,0 28.5,0 0,7 0,7 -28.5,0 -28.5,0 0,21.5 0,21.5 28.5,0 28.5,0 0,7 0,7 -35.5,0 -35.5,0 0,-57 z" id="path2987" style="fill:#000000"/>`,
+                `<path xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#000" stroke-width="14" d="m0,7h64v104L17,64h50"/>`,
+                `<path xmlns="http://www.w3.org/2000/svg" d="M 57,99.5 57,71 29,71 C 13.6,71 1,70.739465 1,70.421033 1,70.102602 10.225,57.586747 21.5,42.608023 32.775,27.629299 42,15.064834 42,14.686989 42,14.309145 32.55,14 21,14 L 0,14 0,7 0,0 35.513675,0 71.027349,0 50.013675,27.981791 C 38.456154,43.371776 29,56.196776 29,56.481791 29,56.766806 38.45,57 50,57 l 21,0 0,28.5 0,28.5 28.5,0 28.5,0 0,7 0,7 -35.5,0 -35.5,0 0,-28.5 z" id="path2987" style="fill:#000000"/>`,
+                `<path xmlns="http://www.w3.org/2000/svg" d="M 0,64 0,0 35.5,0 71,0 71,7 71,14 42.5,14 14,14 14,35.5 14,57 42.5,57 71,57 71,92.5 71,128 35.5,128 0,128 0,64 z M 57,92.5 57,71 35.5,71 14,71 l 0,21.5 0,21.5 21.5,0 21.5,0 0,-21.5 z" id="path2987" style="fill:#000000"/>`,
+                `<path xmlns="http://www.w3.org/2000/svg" d="M 0,92.5 0,57 28.5,57 57,57 57,35.5 57,14 28.5,14 0,14 0,7 0,0 35.5,0 71,0 71,64 71,128 35.5,128 0,128 0,92.5 z m 57,0 0,-21.5 -21.5,0 -21.5,0 0,21.5 0,21.5 21.5,0 21.5,0 0,-21.5 z" id="path2987" style="fill:#000000"/>`,
+                `<path xmlns="http://www.w3.org/2000/svg" d="M 0,64 0,0 35.5,0 71,0 71,35.5 71,71 42.5,71 14,71 l 0,21.5 0,21.5 28.5,0 28.5,0 0,7 0,7 -35.5,0 L 0,128 0,64 z M 57,35.5 57,14 35.5,14 14,14 14,35.5 14,57 35.5,57 57,57 57,35.5 z" id="path2987" style="fill:#000000"/>`,
+                `<path xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#000" stroke-width="14" d="M64,64H7V7H64zm0,0v57H0"/>`,
+            ]
+            num = num.map(x => `<svg><g transform="scale(0.4)">${x}</g></svg>`)
+            for(var t in num){
+                document.getElementById(t).innerHTML = num[t]
+            }
+            operator = ""
+            firstnumber = ""
+            secondnumber = ""
+            function zero(){
+                document.getElementById("input").innerHTML += num[0]
+                firstnumber += "0"
+            }
+
+            function one(){
+                document.getElementById("input").innerHTML += num[1]
+                firstnumber += "1"
+            }
+            function two(){
+                document.getElementById("input").innerHTML += num[2]
+                firstnumber += "2"
+            }
+            function three(){
+                document.getElementById("input").innerHTML += num[3]
+                firstnumber += "3"
+            }
+            function four(){
+                document.getElementById("input").innerHTML += num[4]
+                firstnumber += "4"
+            }
+            function five(){
+                document.getElementById("input").innerHTML += num[5]
+                firstnumber += "5"
+            }
+            function six(){
+                document.getElementById("input").innerHTML += num[6]
+                firstnumber += "6"
+            }
+            function seven(){
+                document.getElementById("input").innerHTML += num[7]
+                firstnumber += "7"
+            }
+            function eight(){
+                document.getElementById("input").innerHTML += num[8]
+                firstnumber += "8"
+            }
+            function nine(){
+                document.getElementById("input").innerHTML += num[9]
+                firstnumber += "9"
+            }
+            function plus(){
+                console.log(firstnumber)
+                operator = "+"
+                document.getElementById("input").innerHTML = ""
+                secondnumber = firstnumber
+                firstnumber = ""
+            }
+            function minus(){
+                console.log(firstnumber)
+                operator = "-"
+                document.getElementById("input").innerHTML = ""
+                secondnumber = firstnumber
+                firstnumber = ""
+            }
+            function times(){
+                console.log(firstnumber)
+                operator = "*"
+                document.getElementById("input").innerHTML = ""
+                secondnumber = firstnumber
+                firstnumber = ""
+            }
+            function divided(){
+                operator = "/"
+                document.getElementById("input").innerHTML = ""
+                secondnumber = firstnumber
+                firstnumber = ""
+            }
+            function dot(){
+                document.getElementById("input").innerHTML += "<svg><circle fill='black' r='10' cx='40' cy='40'></circle></svg>"
+                firstnumber += "."
+            }
+            function equals(){
+                document.getElementById("input").innerHTML = ""
+                newnum = ""
+                console.log(secondnumber)
+                console.log(firstnumber)
+                switch(operator){
+                    case "+":
+                        newnum = +secondnumber + +firstnumber
+                        break
+                    case "-":
+                        newnum = +secondnumber - +firstnumber
+                        break
+                    case "*":
+                        newnum = +secondnumber * +firstnumber
+                        break
+                    case "/":
+                        newnum = +secondnumber / +firstnumber
+                        break
+                }
+                newnum = "" + newnum
+                for(t of newnum.split("")){
+                    if(t != "."){
+                        document.getElementById("input").innerHTML += num[+t]
+                    }
+                    else{
+                        document.getElementById("input").innerHTML += "<svg><circle fill='black' r='10' cx='40' cy='40'></circle></svg>"
+                    }
+                }
+                newnum = secondnumber
+            }
+        </script>
+    </body>
+</html>
