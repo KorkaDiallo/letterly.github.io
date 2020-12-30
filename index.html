@@ -1,57 +1,41 @@
 <html>
     <head>
-        <title>Adlam Clock</title>
-        <style>
-            text{
-                font-size: 24px;
-            }
-            p{
-                font-size: 80px;
-                text-align: center;
-            }
-        </style>
-        <script>
-            setInterval(function(){
-                center = 200
-                a = new Date();
-                second = a.getSeconds()
-                minute = a.getMinutes()
-                hour = a.getHours() + (a.getMinutes() / 60)
-                thehour = (""+a.getHours()).replace(/0/g, "𞥐").replace(/1/g, "𞥑").replace(/2/g, "𞥒").replace(/3/g, "𞥓").replace(/4/g, "𞥔").replace(/5/g, "𞥕").replace(/6/g, "𞥖").replace(/7/g, "𞥗").replace(/8/g, "𞥘").replace(/9/g, "𞥙")
-                theminute = (""+a.getMinutes()).replace(/0/g, "𞥐").replace(/1/g, "𞥑").replace(/2/g, "𞥒").replace(/3/g, "𞥓").replace(/4/g, "𞥔").replace(/5/g, "𞥕").replace(/6/g, "𞥖").replace(/7/g, "𞥗").replace(/8/g, "𞥘").replace(/9/g, "𞥙")
-                thesecond = (""+a.getSeconds()).replace(/0/g, "𞥐").replace(/1/g, "𞥑").replace(/2/g, "𞥒").replace(/3/g, "𞥓").replace(/4/g, "𞥔").replace(/5/g, "𞥕").replace(/6/g, "𞥖").replace(/7/g, "𞥗").replace(/8/g, "𞥘").replace(/9/g, "𞥙")
-                document.getElementById("thesecond").textContent = thesecond
-                document.getElementById("theminute").textContent = theminute
-                document.getElementById("thehour").textContent = thehour
-                document.getElementById("second").setAttribute("x2", center + (90 * Math.sin(second * Math.PI / 30)));
-                document.getElementById("second").setAttribute("y2", center - (90 * Math.cos(second * Math.PI / 30)));
-                document.getElementById("minute").setAttribute("x2", center + (80 * Math.sin(minute * Math.PI / 30)));
-                document.getElementById("minute").setAttribute("y2", center - (80 * Math.cos(minute * Math.PI / 30)));
-                document.getElementById("hour").setAttribute("x2", center + (70 * Math.sin((hour % 12) * Math.PI / 6)));
-                document.getElementById("hour").setAttribute("y2", center - (70 * Math.cos((hour % 12) * Math.PI / 6)));
-            }, 1000);
-        </script>
+        <title>letterly.github.io</title>
+        <meta charset="utf-8">
+        <link rel="shortcut icon" href="favicon.ico?">
+        <link id="css" rel="stylesheet" href="lightmode.css">
+        <link rel="stylesheet" href="united.css">
+        <link rel="stylesheet" href="sizes.css">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+        <script src="data.js"></script>
+        <script src="ipa.js"></script>
+        <script src="onclick.js"></script>
+        <script src="run.js"></script>
     </head>
     <body>
-        <svg width="400" height="400">
-            <circle cx="200" cy="200" r="100" fill="white" stroke="black"></circle>
-            <text x="192" y="92">𞥑𞥒</text>
-            <text x="251" y="111">𞥑</text>
-            <text x="290" y="150">𞥒</text>
-            <text x="308" y="208">𞥓</text>
-            <text x="290" y="266">𞥔</text>
-            <text x="251" y="305">𞥕</text>
-            <text x="192" y="328">𞥖</text>
-            <text x="133" y="305">𞥗</text>
-            <text x="84" y="266">𞥘</text>
-            <text x="78" y="208">𞥙</text>
-            <text x="84" y="150">𞥑𞥐</text>
-            <text x="133" y="111">𞥑𞥑</text>
-
-            <line id="second" x1="200" y1="200" x2="200" y2="110" stroke="red"></line>
-            <line id="minute" x1="200" y1="200" x2="200" y2="120" stroke="black"></line>
-            <line id="hour" x1="200" y1="200" x2="200" y2="130" stroke="black" stroke-width="5"></line>
-        </svg>
-        <p><span id="thehour"></span>:<span id="theminute"></span>:<span id="thesecond"></span></p>
+        <div id="root">
+            <div class="frame">
+                <div id="header">
+                    <h1 class="title">letterly.github.io</h1>
+                    <h2 class="subtitle" id="subtitle">Home</h2>
+                </div>
+            </div>
+            <div class="frame" id="script">
+                <div id="scripts">
+                </div>
+            </div>
+            <div class="frame" id="language">
+                <div id="languages">
+                </div>
+            </div>
+            <div class="frame" id="level">
+            </div>
+            <div class="frame" id="lesson">
+            </div>
+            <div class="frame" id="footer">
+                <p>Created by Harris Mowbray - 2020</p>
+                <p><span id="switch">Click for dark mode</span></p>
+            </div>
+        </div>
     </body>
 </html>
