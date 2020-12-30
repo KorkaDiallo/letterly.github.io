@@ -8,7 +8,7 @@
                 height: 50px;
             }
             #keys svg{
-                background-color: red;
+                background-color: green;
             }
             #keys div{
                 background-color: green;
@@ -84,6 +84,10 @@
                 document.getElementById("input").innerHTML += num[2]
                 firstnumber += "2"
             }
+            function two(){
+                document.getElementById("input").innerHTML += num[2]
+                firstnumber += "2"
+            }
             function three(){
                 document.getElementById("input").innerHTML += num[3]
                 firstnumber += "3"
@@ -111,6 +115,10 @@
             function nine(){
                 document.getElementById("input").innerHTML += num[9]
                 firstnumber += "9"
+            }
+            function del(){
+                document.getElementById("input").removeChild(document.getElementById("input").lastChild);
+                firstnumber = firstnumber.slice(0, -1)
             }
             function plus(){
                 console.log(firstnumber)
