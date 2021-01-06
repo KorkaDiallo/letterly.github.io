@@ -1,0 +1,104 @@
+<html>
+    <head>
+        <style>
+            h1,h2{
+                text-align: center;
+            }
+            textarea{
+                margin-left: 10%;
+                margin-right: 10%;
+                width: 29%;
+                font-size: 24px;
+                height: 200px;
+                resize: none;
+            }
+            *{
+                font-family: 'Verdana';
+            }
+            #braille{
+                direction: rtl;
+            }
+        </style>
+        <script>
+            document.addEventListener('DOMContentLoaded', function(){ 
+                var typingTimer
+                var doneTypingInterval = 1000
+                var $inuk = document.getElementById("inuk")
+                var $braille = document.getElementById("braille")
+                $inuk.addEventListener('keyup', inukFunction)
+                function inukFunction () {
+                    inuk = $inuk.value.toLowerCase()
+
+                    for(e of Object.keys(inukKey)){
+                        var myRegExp = new RegExp(e, 'g')
+                        inuk = inuk.replace(myRegExp, inukKey[e])
+                    }
+                    $braille.value = "‎" + inuk
+                }
+
+                inukKey = {
+                    "ɓ": "bh",
+                    "ɠ": "q",
+                    "ɗ": "dh",
+                    "ƴ": "yh",
+                    "ñ": "ny",
+                    "ŋ": "nh",
+                    "q": "ߜ߫",
+                    "bh": "ߓ߭",
+                    "dh": "ߘ߭",
+                    "yh": "ߦ߭",
+                    "nh": "ߢ߭",
+                    '0': '߀',
+                    '1': '߁',
+                    '2': '߂',
+                    '3': '߃',
+                    '4': '߄',
+                    '5': '߅',
+                    '6': '߆',
+                    '7': '߇',
+                    '8': '߈',
+                    '9': '߉',
+                    '\\,': '߸',
+                    '\\!': '߹',
+                    '\\?': '؟',
+                    "n\'": "ߒ",
+                    "ny": "ߢ",
+                    "ch": "ߗ",
+                    "gb": "ߜ",
+                    "rr": "ߚ",
+                    "g": "ߜ߭",
+                    "aa": "ߊ߮",
+                    "ee": "ߋ߮",
+                    "ii": "ߌ߮",
+                    "oo": "ߏ߮",
+                    "uu": "ߎ߮",
+                    "a": "ߊ",
+                    "e": "ߋ",
+                    "i": "ߌ",
+                    "o": "ߏ",
+                    "u": "ߎ",
+                    "y": "ߦ",
+                    "w": "ߥ",
+                    "h": "ߤ",
+                    "n": "ߣ",
+                    "r": "ߙ",
+                    "d": "ߘ",
+                    "j": "ߖ",
+                    "t": "ߕ",
+                    "p": "ߔ",
+                    "b": "ߓ",
+                    "m": "ߡ",
+                    "l": "ߟ",
+                    "k": "ߞ",
+                    "f": "ߝ",
+                    "s": "ߛ",
+                }
+            }, false);
+        </script>
+    </head>
+    <body>
+        <h1>Fula to Nko</h1>
+        <textarea id="inuk" placeholder="enter Fula text"></textarea>
+        <textarea contenteditable="false" id="braille" placeholder="n'ko output here"></textarea>
+    </body>
+</html>
